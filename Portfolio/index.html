@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/6cffdf2aa5.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("yQN9aQPzxbvaaEco-");
+   })();
+</script>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="images/logo.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <p>Front-end/Back-end Developer</p>
+            <h1>Hi, I'm <span>Elime</span> Kuba-Kuba</h1>
+        </div>
+    </div>
+</div>
+<!----------about---------->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/IMG_1215.jpg">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>I am a self-taught software developer and have always been passionate about technology and started teaching myself how to code a last year in May 2022. Since then, I have worked on several personal projects and have gained experience in various programming languages such as Python, C, JavaScript, HTML, CSS and SQL. As a self-taught developer, I am always looking for new challenges and opportunities to learn and improve my skills.</p>
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education') ">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Front/Back-end</span><br>HTML, CSS, Python, SQL</li>
+                        <li><span>Web Development</span><br>Web App Development</li>
+                        <li><span>UI/UX</span><br>Designing Web App Interfaces</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>Programming Languages</span><br>Python, C, Javascript</li>
+                        <li><span>Frameworks</span><br>Flask</li>
+                        <li><span>Databases</span><br>SQLite3</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>Course</span><br>CS50x Introduction to Computer Science </li>
+                    </ul>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!----------Portfolio------->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Projects</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/work-1.jpg">
+                <div class="layer">
+                    <h3>Weather App</h3>
+                    <p>The Flask weather app uses Open Weather API to provide users with accurate weather information for any location and displays real-time data.</p>
+                    <a href="https://github.com/TKingK2/weather" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-2.jpg">
+                <div class="layer">
+                    <h3>Currency Converter</h3>
+                    <p>Built with Custom Tkinter, it supports multiple currencies and uses real-time exchange rate data for accurate conversions</p>
+                    <a href="https://github.com/TKingK2/Currency-converter" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-3.jpg">
+                <div class="layer">
+                    <h3>BMI Calculator App</h3>
+                    <p>Built with Custom Tkinter it includes an interpretation of the result based on standard BMI categories and is a useful tool for monitoring health and fitness.</p>
+                    <a href="https://github.com/TKingK2/BMI-calculator" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#portfolio" class="btn">See more</a>
+    </div>
+</div>
+<!-----------Contact------------------->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-envelope"></i> mrtkuba@gmail.com</p>
+                <div class="social-icons">
+                    <a href="https://github.com/TKingK2" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <a href="file/Developer CV.pdf" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form>
+                    <input type="text" id="name" name="Name" placeholder="Your Name" required>
+                    <input type="email" id="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" id="message" rows="6" placeholder="Your Message" required></textarea>
+                    <button onclick="sendEmail()" type="submit" class="btn btn2">Submit</button> 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for (tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for (tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+</script>
+
+    <script>
+        function sendEmail(){
+            // Get form input values
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message =  document.getElementById("message").value;
+
+            // Check if email is valid
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            // Check if the email address matches the expected format
+            if (!emailRegex.test(email)) {
+                // If the email address is not valid, display an error message and return early without sending the email
+                alert("Please enter a valid email address.");
+                return;
+            }
+            
+             // Check if all form fields are completed
+            if (name !== "" && email !== "" && message !== "") {
+                // If all form fields are completed, create an object with the form input values
+                var params = {
+                    name: name,
+                    email: email,
+                    message: message,
+                };
+
+            // Set the service ID and template ID for the email service
+            const serviceID = "service_1fiotsy";
+            const templateID = "template_n5opwmo";
+        
+            // Use the emailjs library to send the email
+            emailjs.send(serviceID, templateID, params)
+            .then(
+                res =>{
+                    // If the email is sent successfully, clear the form input fields and display a success message
+                    document.getElementById("name").value = " ";
+                    document.getElementById("email").value = " ";
+                    document.getElementById("message").value = " ";
+                    console.log(res);
+                    alert("Message sent successfully");
+                }
+            )
+            .catch((err) => console.log(err));
+        } else {
+        // If not all form fields are completed, display an error message
+        alert("Please fill out all form fields.");
+        }
+    }  
+    </script>
+</body>
